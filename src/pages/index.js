@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
+import { Row, Col } from "reactstrap"
 
 //components:
 import Layout from "../components/layout"
@@ -12,22 +13,32 @@ const IndexPage = () => (
     <h1>Welcome to my static website</h1>
     <p>This is a Pep's project</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }} />
-    <StaticQuery
-      query={indexQuery}
-      render={data => (
-        <div>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <Post
-              title={node.frontmatter.title}
-              author={node.frontmatter.author}
-              path={node.frontmatter.path}
-              date={node.frontmatter.date}
-              body={node.excerpt}
-            />
-          ))}
-        </div>
-      )}
-    />
+    <Row>
+      <Col md="8">
+        <StaticQuery
+          query={indexQuery}
+          render={data => (
+            <div>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <Post
+                  title={node.frontmatter.title}
+                  author={node.frontmatter.author}
+                  path={node.frontmatter.path}
+                  date={node.frontmatter.date}
+                  body={node.excerpt}
+                  fluid={node.frontmatter.image.childImageSharp.fluid}
+                />
+              ))}
+            </div>
+          )}
+        />
+      </Col>
+      <Col md="4">
+        <div
+          style={{ width: "100%", height: "100%", backgroundColor: "gray" }}
+        />
+      </Col>
+    </Row>
   </Layout>
 )
 
@@ -42,6 +53,13 @@ const indexQuery = graphql`
             title
             date(formatString: "DD MM YYYY")
             author
+            image {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }
