@@ -6,6 +6,7 @@ import { Row, Col } from "reactstrap"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Post from "../components/post"
+import Sidebar from "../components/sidebar"
 
 const IndexPage = () => (
   <Layout>
@@ -35,9 +36,9 @@ const IndexPage = () => (
         />
       </Col>
       <Col md="4">
-        <div
-          style={{ width: "100%", height: "100%", backgroundColor: "gray" }}
-        />
+        <div style={{ width: "100%", height: "100%", backgroundColor: "gray" }}>
+          <Sidebar />
+        </div>
       </Col>
     </Row>
   </Layout>

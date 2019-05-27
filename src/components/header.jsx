@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React from "react"
+import React, { Component } from "react"
 
 import {
   Collapse,
@@ -11,7 +11,7 @@ import {
   NavLink,
 } from "reactstrap"
 
-class Header extends React.Component {
+class Header extends Component {
   constructor(props) {
     super(props)
 

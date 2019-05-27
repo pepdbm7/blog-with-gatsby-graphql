@@ -23,7 +23,9 @@ const Post = ({ title, author, path, date, body, fluid, tags }) => {
         <Img className="card-image-top" fluid={fluid} />
       </Link>
       <CardBody>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle tag="h3" className="text-danger text-underlined">
+          {title}
+        </CardTitle>
         <CardSubtitle>
           <span className="text-primary">{date}</span> by{" "}
           <span className="text-primary">{author}</span>
