@@ -1,17 +1,31 @@
 import React from "react"
+//reactstrap:
+import { Card, CardText, CardBody, CardHeader, Row } from "reactstrap"
+
+//comopnents:
+import SEO from "../components/seo"
 import Layout from "../components/layout"
+import Lebron from "../images/lebron.png"
+
+//utils:
+import authors from "../utils/authors"
 
 const Team = () => (
-  <Layout pageTitle="About us">
-    <div>
-      <h1>Team</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        animi deleniti sunt aliquam perferendis dolores temporibus omnis
-        molestiae accusantium, cumque nobis iure ex reiciendis iste. Officiis
-        nihil explicabo repudiandae iusto.
-      </p>
-    </div>
+  <Layout pageTitle="Our Team">
+    <SEO title="Our Team" keywords={[`gatsby`, `team`, `lebron`, `react`]} />
+    <Row className="mb-4">
+      <div className="col-md-3">
+        <img src={Lebron} style={{ maxWidth: "100%" }} alt="Lebron pic" />
+      </div>
+      <div className="col-md-8">
+        <Card style={{ minHeight: "100%" }}>
+          <CardBody>
+            <CardHeader>{authors[0].name}</CardHeader>
+            <CardText>{authors[0].bio}</CardText>
+          </CardBody>
+        </Card>
+      </div>
+    </Row>
   </Layout>
 )
 

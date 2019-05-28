@@ -16,12 +16,10 @@ import {
   Badge,
 } from "reactstrap"
 
-const Post = ({ title, author, path, date, body, fluid, tags }) => {
+const Post = ({ title, author, slug, date, body, fluid, tags }) => {
   return (
     <Card>
-      <Link to={path}>
-        <Img className="card-image-top" fluid={fluid} />
-      </Link>
+      <Img className="card-image-top" fluid={fluid} />
       <CardBody>
         <CardTitle tag="h3" className="text-danger text-underlined">
           {title}
@@ -32,8 +30,8 @@ const Post = ({ title, author, path, date, body, fluid, tags }) => {
         </CardSubtitle>
         <CardText>{body}</CardText>
         <ul className="post-tags">
-          {tags.map(tag => (
-            <li>
+          {tags.map((tag, i) => (
+            <li key={i}>
               <Link to={`/tag/${slugify(tag)}`} />
               <Badge color="primary" className="text-lowercase">
                 {tag}
@@ -41,9 +39,9 @@ const Post = ({ title, author, path, date, body, fluid, tags }) => {
             </li>
           ))}
         </ul>
-        <Link to={path} className="btn btn-outline-primary float-right">
+        {/* <Link to={slug}className="btn btn-outline-primary float-right">
           Read more
-        </Link>
+        </Link> */}
       </CardBody>
     </Card>
   )
@@ -52,7 +50,7 @@ const Post = ({ title, author, path, date, body, fluid, tags }) => {
 Post.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
-  path: PropTypes.string,
+  slug: PropTypes.string,
   date: PropTypes.string,
   body: PropTypes.string,
 }

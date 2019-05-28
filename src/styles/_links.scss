@@ -7,11 +7,6 @@
       margin: auto 20px;
 
       a {
-        opacity: 0.6;
-        transition: all 0.1s ease-in;
-        &:hover {
-          opacity: 1;
-        }
         &.facebook {
           color: rgb(66, 103, 178);
         }

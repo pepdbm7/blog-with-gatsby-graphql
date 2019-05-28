@@ -13,22 +13,20 @@
         display: inline-block;
 
         a {
-          color: $dark-gray;
-
-          &.instagram:hover {
+          &.instagram {
             color: #e95950;
           }
-          &.facebook:hover {
+          &.facebook {
             color: rgb(66, 103, 178);
           }
-          &.twitter:hover {
+          &.twitter {
             color: rgb(56, 161, 243);
           }
-          &.google:hover {
-            color: rgb(221, 75, 57);
-          }
-          &.linkedin:hover {
+          &.linkedin {
             color: rgb(0, 119, 181);
+          }
+          :hover {
+            color: $dark-gray;
           }
         }
       }
